@@ -5,6 +5,7 @@
     <HomeIconNav></HomeIconNav>
     <HomeBangDan></HomeBangDan>
     <HomeYoulike></HomeYoulike>
+    <HomeZhouMoYou></HomeZhouMoYou>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import HomeSwiper from './components/Swiper.vue'
 import HomeIconNav from './components/IconNav.vue'
 import HomeBangDan from './components/BangDan.vue'
 import HomeYoulike from './components/Youlike.vue'
+import HomeZhouMoYou from './components/Zhoumoyou.vue'
 export default {
   data () {
     return {
@@ -25,7 +27,8 @@ export default {
     HomeSwiper,
     HomeIconNav,
     HomeBangDan,
-    HomeYoulike
+    HomeYoulike,
+    HomeZhouMoYou
   }
 }
 </script>
