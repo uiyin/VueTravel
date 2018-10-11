@@ -100,11 +100,6 @@ export default {
   margin-left: 0.2rem;
 }
 .bangdan {
-  .zhanwei {
-    width: 100%;
-    height: 0.4rem;
-    background: #f5f5f5;
-  }
   .bangdanheader {
     font-size: 16px;
     color: @fontcolor;
