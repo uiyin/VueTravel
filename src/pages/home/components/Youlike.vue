@@ -10,16 +10,17 @@
       </div>
       <div class="contentall">
         <div class="contentitem border-bottom"
-             v-for="(item,index) in dataall"
-             :key="index">
+             v-for="(item,index) in RecommendList"
+             :key="index"
+             :id="item.id">
           <div class="left">
-            <img :src="item.src"
+            <img :src="item.imgUrl"
                  alt="">
           </div>
           <div class="right">
-            <div class="title">{{item.text}}</div>
-            <div class="info">{{item.price}}</div>
-            <div class="content">{{item.info}}</div>
+            <div class="title">{{item.title}}</div>
+            <div class="info"></div>
+            <div class="content">{{item.desc}}</div>
           </div>
         </div>
       </div>
@@ -29,6 +30,7 @@
 
 <script>
 export default {
+  props: ['RecommendList'],
   data () {
     return {
       header: '猜你喜欢',
@@ -118,6 +120,7 @@ export default {
   font-size: 16px;
 }
 .youlike {
+  overflow: hidden;
   .youlikeheader {
     font-size: 16px;
     color: @fontcolor;

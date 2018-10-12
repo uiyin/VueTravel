@@ -9,13 +9,14 @@
     </div>
     <div class="zhoucontent">
       <div class="contentitem"
-           v-for="(item,index) in dataall"
-           :key="index">
-        <img :src="item.src"
+           v-for="(item,index) in weekendList"
+           :key="index"
+           :id="item.id">
+        <img :src="item.imgUrl"
              class="imgcontent"
              alt="">
         <p class="title">{{item.title}}</p>
-        <p class="info">{{item.info}}</p>
+        <p class="info">{{item.desc}}</p>
       </div>
     </div>
   </div>
@@ -23,6 +24,7 @@
 
 <script>
 export default {
+  props: ['weekendList'],
   data () {
     return {
       header: '周末游',
@@ -51,6 +53,7 @@ export default {
 <style scoped lang="less">
 @import '~styles/common.less';
 .zhouyou {
+  overflow: hidden;
   .zhouyouheader {
     font-size: 16px;
     color: @fontcolor;

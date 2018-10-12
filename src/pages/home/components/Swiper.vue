@@ -1,13 +1,16 @@
 <template>
   <div class="swiperwrapper">
+    <!-- 加v-if就是为了防止轮播图展现最后一个，必须要加length,这样等数据出来后就会看的到 -->
     <swiper :options="swiperOption"
-            ref="mySwiper">
+            ref="mySwiper"
+            v-if="SwiperList.length">
       <!-- slides -->
-      <swiper-slide v-for="(item, index) in banners"
+      <swiper-slide v-for="(item, index) in SwiperList"
                     :key="index"
-                    @click.native="gotourl">
+                    @click.native="gotourl"
+                    :id="item.id">
         <img class="imgcontent"
-             :src="item.src">
+             :src="item.imgUrl">
       </swiper-slide>
       <!-- Optional controls -->
       <div class="swiper-pagination"
@@ -18,6 +21,7 @@
 
 <script>
 export default {
+  props: ['SwiperList'],
   name: 'HomeSwiper',
   data () {
     return {
@@ -73,6 +77,7 @@ export default {
   width: 100%;
   height: 26.6vw;
   background: #ccc;
+  margin-bottom: 0.2rem;
   .imgcontent {
     width: 100%;
     height: auto;

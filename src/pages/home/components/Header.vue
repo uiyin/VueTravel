@@ -6,7 +6,7 @@
     <div class="header-input">
       <span class="iconfont icon-sousuo"></span>
     </div>
-    <div class="header-right">城市
+    <div class="header-right">{{city}}
       <span class="iconfont icon-jiantouxia xia-icon"></span>
     </div>
   </div>
@@ -14,7 +14,8 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: ['city']
 }
 </script>
 
