@@ -9,13 +9,14 @@
     </div>
     <div class="bangdanwrapper">
       <swiper :options="swiperOption">
-        <swiper-slide v-for="(item,index) in dataall"
+        <swiper-slide v-for="(item,index) in RecommendList"
                       :key="index"
-                      class="slidecontent">
-          <img :src="item.src"
+                      class="slidecontent"
+                      :id="item.id">
+          <img :src="item.imgUrl"
                alt=""
                class="imgcontent">
-          <p class="textcontent">{{item.text}}</p>
+          <p class="textcontent">{{item.title}}</p>
         </swiper-slide>
       </swiper>
     </div>
@@ -24,6 +25,7 @@
 
 <script>
 export default {
+  props: ['RecommendList'],
   data () {
     return {
       header: '本周热门榜单',

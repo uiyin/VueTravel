@@ -1,11 +1,11 @@
 <template>
   <div>
-    <HomeHeader></HomeHeader>
-    <HomeSwiper></HomeSwiper>
-    <HomeIconNav></HomeIconNav>
-    <HomeBangDan></HomeBangDan>
-    <HomeYoulike></HomeYoulike>
-    <HomeZhouMoYou></HomeZhouMoYou>
+    <HomeHeader :city="city"></HomeHeader>
+    <HomeSwiper :SwiperList="SwiperList"></HomeSwiper>
+    <HomeIconNav :IconNavList="IconNavList"></HomeIconNav>
+    <HomeBangDan :RecommendList="RecommendList"></HomeBangDan>
+    <HomeYoulike :RecommendList="RecommendList"></HomeYoulike>
+    <HomeZhouMoYou :weekendList="weekendList"></HomeZhouMoYou>
   </div>
 </template>
 
@@ -16,10 +16,16 @@ import HomeIconNav from './components/IconNav.vue'
 import HomeBangDan from './components/BangDan.vue'
 import HomeYoulike from './components/Youlike.vue'
 import HomeZhouMoYou from './components/Zhoumoyou.vue'
+import axios from 'axios'
 export default {
   data () {
     return {
-      message: '首页'
+      message: '首页',
+      city: '城市',
+      SwiperList: [],
+      IconNavList: [],
+      RecommendList: [],
+      weekendList: []
     }
   },
   components: {
@@ -29,6 +35,21 @@ export default {
     HomeBangDan,
     HomeYoulike,
     HomeZhouMoYou
+  },
+  mounted () {
+    axios.get('/api/index.json').then(this.getdata)
+  },
+  methods: {
+    getdata (res) {
+      console.log(res)
+      this.SwiperList = res.data.data.swiperList
+      this.IconNavList = res.data.data.iconList
+      this.RecommendList = res.data.data.recommendList
+      this.weekendList = res.data.data.weekendList
+      console.log(res.data.data.iconList)
+      console.log(this.SwiperList)
+      console.log(this.RecommendList)
+    }
   }
 }
 </script>

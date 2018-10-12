@@ -7,11 +7,12 @@
                       :key="page">
           <div class="iconNavItem"
                v-for="(item, index) in content"
-               :key="index">
-            <img :src="item.src"
+               :key="index"
+               :id="item.id">
+            <img :src="item.imgUrl"
                  alt=""
                  class="imgcontent">
-            <p class="itemtext">{{item.text}}</p>
+            <p class="itemtext">{{item.desc}}</p>
           </div>
         </swiper-slide>
       </swiper>
@@ -23,6 +24,7 @@
 
 <script>
 export default {
+  props: ['IconNavList'],
   data () {
     return {
       swiperOption: {
@@ -90,7 +92,7 @@ export default {
   computed: {
     pages () {
       let pages = []
-      let value = this.dataall
+      let value = this.IconNavList
       value.forEach((item, index) => {
         // 要是比0大就是第二页了
         let num = Math.floor(index / 8)
@@ -117,13 +119,13 @@ export default {
 .iconNav {
   .iconNavContent {
     width: 100%;
-    height: 50.6vw;
+    height: 55.6vw;
     overflow: hidden;
     padding-top: 0.3rem;
     .iconNavItem {
       position: relative;
       width: 25%;
-      height: 22vw;
+      height: 24vw;
       float: left;
       overflow: hidden;
       .imgcontent {
