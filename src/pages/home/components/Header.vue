@@ -6,9 +6,12 @@
     <div class="header-input">
       <span class="iconfont icon-sousuo"></span>
     </div>
-    <div class="header-right">{{city}}
-      <span class="iconfont icon-jiantouxia xia-icon"></span>
-    </div>
+    <router-link to="/city"
+                 class="ziti">
+      <div class="header-right">{{city}}
+        <span class="iconfont icon-jiantouxia xia-icon"></span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -48,13 +51,16 @@ export default {
     line-height: 0.64rem;
     padding-left: 0.2rem;
   }
-  .header-right {
-    width: 1.24rem;
-    float: right;
-    text-align: center;
-    .xia-icon {
-      margin-left: 0.05rem;
-      font-size: 10px;
+  .ziti {
+    color: white;
+    .header-right {
+      width: 1.24rem;
+      float: right;
+      text-align: center;
+      .xia-icon {
+        margin-left: 0.05rem;
+        font-size: 10px;
+      }
     }
   }
 }
