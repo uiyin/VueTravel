@@ -25,29 +25,39 @@ export default {
 // @import '~@/assets/styles/common.less';
 @import '~styles/common.less';
 .header {
-  a {
-    text-decoration: none;
-    color: white;
-  }
   line-height: 0.86rem;
   display: flex;
   background: @bgcolor;
   flex-flow: row nowrap;
   font-size: 14px;
+  text-align: center;
+  position: relative;
   color: #fff;
+  height: 0.86rem;
+  a {
+    text-decoration: none;
+    color: white;
+  }
   .header-left {
+    position: absolute;
+    left: 0px;
+    top: 0px;
     width: 0.64rem;
-    flex: 0 0 0.64rem;
+    height: 100%;
+    z-index: 999;
     .back-icon {
       text-align: center;
       font-size: 20px;
     }
   }
   .header-content {
-    flex: 1;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 0.86rem;
     font-size: 16px;
     color: #fff;
-    text-align: center;
   }
 }
 </style>
