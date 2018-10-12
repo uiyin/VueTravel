@@ -2,12 +2,14 @@
   <div>
     <Cityheader></Cityheader>
     <CitySearch></CitySearch>
+    <CityList></CityList>
   </div>
 </template>
 
 <script>
 import Cityheader from './components/CityHeader.vue'
 import CitySearch from './components/CitySearch.vue'
+import CityList from './components/List.vue'
 export default {
   data () {
     return {
@@ -16,7 +18,8 @@ export default {
   },
   components: {
     Cityheader,
-    CitySearch
+    CitySearch,
+    CityList
   }
 }
 </script>
