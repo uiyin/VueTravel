@@ -3,6 +3,7 @@
     <Cityheader></Cityheader>
     <CitySearch></CitySearch>
     <CityList></CityList>
+    <CityLetter></CityLetter>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Cityheader from './components/CityHeader.vue'
 import CitySearch from './components/CitySearch.vue'
 import CityList from './components/List.vue'
+import CityLetter from './components/CityLetter.vue'
 export default {
   data () {
     return {
@@ -19,7 +21,8 @@ export default {
   components: {
     Cityheader,
     CitySearch,
-    CityList
+    CityList,
+    CityLetter
   }
 }
 </script>
