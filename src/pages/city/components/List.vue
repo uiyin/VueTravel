@@ -11,15 +11,6 @@
             <div class="areaitem">
               北京
             </div>
-            <div class="areaitem">
-              北京
-            </div>
-            <div class="areaitem">
-              北京
-            </div>
-            <div class="areaitem">
-              北京
-            </div>
           </div>
         </div>
         <div class="area">
@@ -27,46 +18,28 @@
             热门城市
           </div>
           <div class="areacontent">
-            <div class="areaitem">
-              北京
+            <div class="areaitem"
+                 v-for="(item,index) in hotcity"
+                 :key="index"
+                 :id="item.id">
+              {{item.name}}
             </div>
-            <div class="areaitem">
-              北京
-            </div>
-            <div class="areaitem">
-              北京
-            </div>
-            <div class="areaitem">
-              北京
-            </div>
+
           </div>
         </div>
-        <div class="area">
+        <div class="area"
+             v-for="(item,key,index2) in city"
+             :key="index2">
           <div class="areatitle">
-            A
+            {{key}}
           </div>
           <div class="listcontent">
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-          </div>
-        </div>
-        <div class="area">
-          <div class="areatitle">
-            B
-          </div>
-          <div class="listcontent">
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
-            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom"
+                 v-for="(content,index) in item"
+                 :key="index"
+                 :id="content.id">
+              {{content.name}}
+            </div>
           </div>
         </div>
       </div>
@@ -77,6 +50,7 @@
 <script>
 import BScroll from 'better-scroll'
 export default {
+  props: ['city', 'hotcity'],
   data () {
     return {
       message: 'list'
