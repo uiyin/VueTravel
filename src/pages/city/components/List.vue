@@ -3,7 +3,8 @@
     <div class="citylist"
          ref="citylist">
       <div>
-        <div class="area">
+        <div class="area"
+             ref="nowcity">
           <div class="areatitle">
             当前城市
           </div>
@@ -13,7 +14,8 @@
             </div>
           </div>
         </div>
-        <div class="area">
+        <div class="area"
+             ref="hotcity">
           <div class="areatitle">
             热门城市
           </div>
@@ -29,7 +31,8 @@
         </div>
         <div class="area"
              v-for="(item,key,index2) in city"
-             :key="index2">
+             :key="index2"
+             :ref="key">
           <div class="areatitle">
             {{key}}
           </div>
@@ -50,16 +53,79 @@
 <script>
 import BScroll from 'better-scroll'
 export default {
-  props: ['city', 'hotcity'],
+  props: ['city', 'hotcity', 'letter'],
   data () {
     return {
-      message: 'list'
+      message: 'list',
+      scrolly: 0,
+      currentIndex: 0
     }
   },
   mounted () {
     // 绑定
     const citylist = this.$refs.citylist
-    this.scroll = new BScroll(citylist)
+    this.scroll = new BScroll(citylist, {
+      probeType: 3
+    })
+    this.scroll.on('scroll', (res) => {
+      let scrollY = Math.abs(Math.round(res.y))
+      this.scrolly = scrollY
+    })
+  },
+  computed: {
+    listHeight () {
+      let heightresult = []
+      let city = this.city
+      let nowcity = this.$refs.nowcity.clientHeight
+      let hotcity = this.$refs.hotcity.clientHeight
+      // 获取到以前的高度
+      let heightall = nowcity + hotcity
+      // 计算每个区块
+      heightresult.push(heightall)
+      console.log(heightresult)
+
+      for (var i in city) {
+        heightall += this.$refs[i][0].clientHeight
+        heightresult.push(heightall)
+      }
+      console.log(heightresult)
+      return heightresult
+    },
+    // 循环的就是字母
+    letterresult () {
+      let letters = []
+      for (let i in this.city) {
+        letters.push(i)
+      }
+      return letters
+    }
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    },
+    scrolly () {
+      let height = this.listHeight
+      for (let i = 0; i < height.length; i++) {
+        let height1 = height[i]
+        let height2 = height[i + 1]
+        if (this.scrolly <= height2 && this.scrolly >= height1) {
+          this.currentIndex = i
+        } else if (this.scrolly < height[0]) {
+          this.currentIndex = 0
+        } else if (this.scrolly > height[height.length - 1]) {
+          this.currentIndex = height.length - 1
+        }
+      }
+    },
+    currentIndex () {
+      console.log(this.letterresult[this.currentIndex])
+      let value = this.letterresult[this.currentIndex]
+      this.$emit('change', value)
+    }
   }
 }
 </script>
