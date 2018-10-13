@@ -1,70 +1,73 @@
 <template>
   <div>
-    <div class="citylist">
-      <div class="area">
-        <div class="areatitle">
-          当前城市
-        </div>
-        <div class="areacontent">
-          <div class="areaitem">
-            北京
+    <div class="citylist"
+         ref="citylist">
+      <div>
+        <div class="area">
+          <div class="areatitle">
+            当前城市
           </div>
-          <div class="areaitem">
-            北京
-          </div>
-          <div class="areaitem">
-            北京
-          </div>
-          <div class="areaitem">
-            北京
-          </div>
-        </div>
-      </div>
-      <div class="area">
-        <div class="areatitle">
-          热门城市
-        </div>
-        <div class="areacontent">
-          <div class="areaitem">
-            北京
-          </div>
-          <div class="areaitem">
-            北京
-          </div>
-          <div class="areaitem">
-            北京
-          </div>
-          <div class="areaitem">
-            北京
+          <div class="areacontent">
+            <div class="areaitem">
+              北京
+            </div>
+            <div class="areaitem">
+              北京
+            </div>
+            <div class="areaitem">
+              北京
+            </div>
+            <div class="areaitem">
+              北京
+            </div>
           </div>
         </div>
-      </div>
-      <div class="area">
-        <div class="areatitle">
-          A
+        <div class="area">
+          <div class="areatitle">
+            热门城市
+          </div>
+          <div class="areacontent">
+            <div class="areaitem">
+              北京
+            </div>
+            <div class="areaitem">
+              北京
+            </div>
+            <div class="areaitem">
+              北京
+            </div>
+            <div class="areaitem">
+              北京
+            </div>
+          </div>
         </div>
-        <div class="listcontent">
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
+        <div class="area">
+          <div class="areatitle">
+            A
+          </div>
+          <div class="listcontent">
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+          </div>
         </div>
-      </div>
-      <div class="area">
-        <div class="areatitle">
-          B
-        </div>
-        <div class="listcontent">
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
-          <div class="listitem border-bottom">北京</div>
+        <div class="area">
+          <div class="areatitle">
+            B
+          </div>
+          <div class="listcontent">
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+            <div class="listitem border-bottom">北京</div>
+          </div>
         </div>
       </div>
     </div>
@@ -72,8 +75,18 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
-
+  data () {
+    return {
+      message: 'list'
+    }
+  },
+  mounted () {
+    // 绑定
+    const citylist = this.$refs.citylist
+    this.scroll = new BScroll(citylist)
+  }
 }
 </script>
 
