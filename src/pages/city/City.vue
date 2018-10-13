@@ -3,8 +3,12 @@
     <Cityheader></Cityheader>
     <CitySearch></CitySearch>
     <CityList :city="CityLetter"
-              :hotcity="CityList"></CityList>
-    <CityLetter :cityletter="CityLetter"></CityLetter>
+              :hotcity="CityList"
+              :letter="letter"
+              @change="gotoel"></CityList>
+    <CityLetter :cityletter="CityLetter"
+                :letter="letter"
+                @change="gotoel"></CityLetter>
   </div>
 </template>
 
@@ -19,7 +23,8 @@ export default {
     return {
       message: '城市',
       CityLetter: {},
-      CityList: []
+      CityList: [],
+      letter: ''
     }
   },
   components: {
@@ -37,6 +42,10 @@ export default {
       // 获取到所有城市
       this.CityLetter = res.data.data.cities
       this.CityList = res.data.data.hotCities
+    },
+    gotoel (res) {
+      this.letter = res
+      console.log(this.letter)
     }
   }
 }
