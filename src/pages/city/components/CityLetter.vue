@@ -1,20 +1,16 @@
 <template>
   <div>
     <div class="lettercontent">
-      <div class="letteritem">A</div>
-      <div class="letteritem">A</div>
-      <div class="letteritem">A</div>
-      <div class="letteritem">A</div>
-      <div class="letteritem">A</div>
-      <div class="letteritem">A</div>
-      <div class="letteritem">A</div>
-      <div class="letteritem">A</div>
+      <div class="letteritem"
+           v-for="(item,key,index) in cityletter"
+           :key="index">{{key}}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['cityletter'],
   data () {
     return {
       message: '信息'
