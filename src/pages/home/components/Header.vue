@@ -16,9 +16,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: ['city']
+  computed: {
+    ...mapState(['city'])
+  }
+
 }
 </script>
 
@@ -54,9 +58,10 @@ export default {
   .ziti {
     color: white;
     .header-right {
-      width: 1.24rem;
+      width: 1.6rem;
       float: right;
       text-align: center;
+      font-size: 12px;
       .xia-icon {
         margin-left: 0.05rem;
         font-size: 10px;

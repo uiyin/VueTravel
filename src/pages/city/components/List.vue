@@ -10,7 +10,7 @@
           </div>
           <div class="areacontent">
             <div class="areaitem">
-              北京
+              {{nowcity}}
             </div>
           </div>
         </div>
@@ -23,7 +23,8 @@
             <div class="areaitem"
                  v-for="(item,index) in hotcity"
                  :key="index"
-                 :id="item.id">
+                 :id="item.id"
+                 @click="changecity2(item.name)">
               {{item.name}}
             </div>
 
@@ -40,7 +41,9 @@
             <div class="listitem border-bottom"
                  v-for="(content,index) in item"
                  :key="index"
-                 :id="content.id">
+                 :id="content.id"
+                 @click="changecity2(content.name)">
+
               {{content.name}}
             </div>
           </div>
@@ -52,6 +55,7 @@
 
 <script>
 import BScroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   props: ['city', 'hotcity', 'letter'],
   data () {
@@ -60,6 +64,15 @@ export default {
       scrolly: 0,
       currentIndex: 0
     }
+  },
+  methods: {
+
+    changecity2 (res) {
+      this.changecity(res)
+      this.$router.push({ path: '/' })
+    },
+    ...mapMutations(['changecity'])
+
   },
   mounted () {
     // 绑定
@@ -73,6 +86,9 @@ export default {
     })
   },
   computed: {
+    ...mapState({
+      nowcity: 'city'
+    }),
     listHeight () {
       let heightresult = []
       let city = this.city
