@@ -9,10 +9,13 @@
         <div class="imgtext">{{header}}</div>
       </div>
       <div class="contentall">
-        <div class="contentitem border-bottom"
-             v-for="(item,index) in RecommendList"
-             :key="index"
-             :id="item.id">
+
+        <router-link :to="'/detail/'+item.id"
+                     tag="div"
+                     class="contentitem border-bottom"
+                     v-for="(item,index) in RecommendList"
+                     :key="index"
+                     :id="item.id">
           <div class="left">
             <img :src="item.imgUrl"
                  alt="">
@@ -22,10 +25,12 @@
             <div class="info"></div>
             <div class="content">{{item.desc}}</div>
           </div>
-        </div>
+        </router-link>
       </div>
+
     </div>
   </div>
+
 </template>
 
 <script>
