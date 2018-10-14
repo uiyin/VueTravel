@@ -39,7 +39,6 @@ export default {
   mounted () {
     setTimeout(() => {
       this.$nextTick(() => {
-        console.log(this.$refs['A'][0])
         this.$refs['A'][0].style.color = 'red'
       })
     }, 200)
@@ -48,10 +47,8 @@ export default {
     letter () {
       // 获取到对应的值
       let value = this.letter
-      console.log(value)
       // 获取到所有的字母
       let list = this.letters
-      console.log(list)
       for (let i = 0; i < list.length; i++) {
         if (value === list[i]) {
           this.$refs[list[i]][0].style.color = 'red'
@@ -77,7 +74,6 @@ export default {
           let letter = this.letters
           if (index >= 0 && index <= this.letters.length) {
             let value = this.letters[index]
-            console.log(value)
             for (let i = 0; i < letter.length; i++) {
               if (value === letter[i]) {
                 this.$refs[value][0].style.color = 'green'

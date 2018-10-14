@@ -82,13 +82,11 @@ export default {
       let heightall = nowcity + hotcity
       // 计算每个区块
       heightresult.push(heightall)
-      console.log(heightresult)
 
       for (var i in city) {
         heightall += this.$refs[i][0].clientHeight
         heightresult.push(heightall)
       }
-      console.log(heightresult)
       return heightresult
     },
     // 循环的就是字母
@@ -122,7 +120,6 @@ export default {
       }
     },
     currentIndex () {
-      console.log(this.letterresult[this.currentIndex])
       let value = this.letterresult[this.currentIndex]
       this.$emit('change', value)
     }

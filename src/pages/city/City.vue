@@ -38,14 +38,12 @@ export default {
   },
   methods: {
     getData (res) {
-      console.log(res)
       // 获取到所有城市
       this.CityLetter = res.data.data.cities
       this.CityList = res.data.data.hotCities
     },
     gotoel (res) {
       this.letter = res
-      console.log(this.letter)
     }
   }
 }
