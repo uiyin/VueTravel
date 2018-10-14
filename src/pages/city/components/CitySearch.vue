@@ -18,7 +18,8 @@
         <div v-if="listcontent.length>0">
           <div class="listitem"
                v-for="(item,index) in listcontent"
-               :key="index">{{item}}</div>
+               :key="index"
+               @click="changecity2(item)">{{item}}</div>
         </div>
         <div v-else>
           <div class="listitem">对不起没有符合的地点</div>
@@ -31,6 +32,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   props: ['city'],
   name: 'CitySearch',
@@ -40,6 +42,15 @@ export default {
       listcontent: [],
       time: null
     }
+  },
+  methods: {
+    changecity2 (res) {
+      this.changecity(res)
+      this.keyword = ''
+      this.listcontent = []
+      this.$router.push({ path: '/' })
+    },
+    ...mapMutations(['changecity'])
   },
   watch: {
     keyword () {

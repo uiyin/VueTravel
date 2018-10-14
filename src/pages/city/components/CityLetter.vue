@@ -37,11 +37,12 @@ export default {
     }
   },
   mounted () {
+    let _this = this
     setTimeout(() => {
-      this.$nextTick(() => {
-        this.$refs['A'][0].style.color = 'red'
+      _this.$nextTick(() => {
+        _this.$refs['A'][0].style.color = 'red'
       })
-    }, 200)
+    }, 500)
   },
   watch: {
     letter () {

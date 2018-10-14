@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomeHeader :city="city"></HomeHeader>
+    <HomeHeader></HomeHeader>
     <HomeSwiper :SwiperList="SwiperList"></HomeSwiper>
     <HomeIconNav :IconNavList="IconNavList"></HomeIconNav>
     <HomeBangDan :RecommendList="RecommendList"></HomeBangDan>
@@ -21,7 +21,6 @@ export default {
   data () {
     return {
       message: '首页',
-      city: '城市',
       SwiperList: [],
       IconNavList: [],
       RecommendList: [],
@@ -46,9 +45,6 @@ export default {
       this.IconNavList = res.data.data.iconList
       this.RecommendList = res.data.data.recommendList
       this.weekendList = res.data.data.weekendList
-      console.log(res.data.data.iconList)
-      console.log(this.SwiperList)
-      console.log(this.RecommendList)
     }
   }
 }
