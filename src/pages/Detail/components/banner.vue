@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="banner">
+    <div class="banner"
+         @click="flagchange">
       <img class="imgcontent"
            src="http://img1.qunarzz.com/sight/p0/1505/a6/a61815053184d725.water.jpg_600x330_2e7df514.jpg"
            alt="">
@@ -8,16 +9,35 @@
         <div class="bannerleft">天津光合谷（天沐）温泉(开始免费申请)</div>
         <div class="bannerright">
           <div class="iconfont icon-tupian iconbg"></div>
-          <div class="ictontext"> 108</div>
+          <div class="ictontext">2</div>
         </div>
       </div>
     </div>
+    <CommonGallary v-if="flag"
+                   @change="close"></CommonGallary>
   </div>
 </template>
 
 <script>
+import CommonGallary from 'common/gallary/gallary'
 export default {
-  name: 'DetailBanner'
+  name: 'DetailBanner',
+  components: {
+    CommonGallary
+  },
+  data () {
+    return {
+      flag: false
+    }
+  },
+  methods: {
+    close (e) {
+      this.flag = e
+    },
+    flagchange () {
+      this.flag = true
+    }
+  }
 }
 </script>
 
