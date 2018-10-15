@@ -13,10 +13,12 @@
                       :key="index"
                       class="slidecontent"
                       :id="item.id">
-          <img :src="item.imgUrl"
-               alt=""
-               class="imgcontent">
-          <p class="textcontent">{{item.title}}</p>
+          <router-link :to="'/detail/'+item.id">
+            <img :src="item.imgUrl"
+                 alt=""
+                 class="imgcontent">
+            <p class="textcontent">{{item.title}}</p>
+          </router-link>
         </swiper-slide>
       </swiper>
     </div>
@@ -100,6 +102,9 @@ export default {
   height: 2.5rem;
   float: left;
   margin-left: 0.2rem;
+}
+a {
+  text-decoration: none;
 }
 .bangdan {
   .bangdanheader {

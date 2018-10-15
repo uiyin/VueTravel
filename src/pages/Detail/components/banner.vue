@@ -3,18 +3,20 @@
     <div class="banner"
          @click="flagchange">
       <img class="imgcontent"
-           src="http://img1.qunarzz.com/sight/p0/1505/a6/a61815053184d725.water.jpg_600x330_2e7df514.jpg"
+           :src="dataall.bannerImg"
            alt="">
       <div class="bannercontent">
-        <div class="bannerleft">天津光合谷（天沐）温泉(开始免费申请)</div>
+        <div class="bannerleft">{{dataall.sightName}}</div>
         <div class="bannerright">
           <div class="iconfont icon-tupian iconbg"></div>
-          <div class="ictontext">2</div>
+          <div class="ictontext"
+               v-if="dataall.gallaryImgs">{{dataall.gallaryImgs.length}}</div>
         </div>
       </div>
     </div>
     <CommonGallary v-if="flag"
-                   @change="close"></CommonGallary>
+                   @change="close"
+                   :list='dataall.gallaryImgs'></CommonGallary>
   </div>
 </template>
 
@@ -22,6 +24,7 @@
 import CommonGallary from 'common/gallary/gallary'
 export default {
   name: 'DetailBanner',
+  props: ['dataall'],
   components: {
     CommonGallary
   },

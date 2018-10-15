@@ -5,15 +5,18 @@
         <!-- 每一个swiper-slide就是一屏幕 -->
         <swiper-slide v-for="(content, page) in pages"
                       :key="page">
-          <div class="iconNavItem"
-               v-for="(item, index) in content"
-               :key="index"
-               :id="item.id">
+
+          <router-link :to="'/detail/'+item.id"
+                       tag="div"
+                       class="iconNavItem"
+                       v-for="(item, index) in content"
+                       :key="index"
+                       :id="item.id">
             <img :src="item.imgUrl"
                  alt=""
                  class="imgcontent">
             <p class="itemtext">{{item.desc}}</p>
-          </div>
+          </router-link>
         </swiper-slide>
       </swiper>
       <div class="iconnav_all"
