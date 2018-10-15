@@ -34,7 +34,6 @@ export default {
     }
   },
   activated () {
-    document.documentElement.scrollTop = 0
     window.addEventListener('scroll', this.getTop)
   },
   deactivated () {

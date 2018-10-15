@@ -8,16 +8,18 @@
       <div class="imgtext">{{header}}</div>
     </div>
     <div class="zhoucontent">
-      <div class="contentitem"
-           v-for="(item,index) in weekendList"
-           :key="index"
-           :id="item.id">
+      <router-link :to="'/detail/'+item.id"
+                   tag="div"
+                   class="contentitem"
+                   v-for="(item,index) in weekendList"
+                   :key="index"
+                   :id="item.id">
         <img :src="item.imgUrl"
              class="imgcontent"
              alt="">
         <p class="title">{{item.title}}</p>
         <p class="info">{{item.desc}}</p>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>

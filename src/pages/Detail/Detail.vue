@@ -22,7 +22,6 @@ export default {
   },
   mounted () {
     let id = this.$route.params.id
-    console.log(id)
     let data = {
       params: {
         id: id
@@ -34,7 +33,6 @@ export default {
     getdata (res) {
       let resresult = res.data
       if (resresult.ret) {
-        console.log(resresult.data)
         this.dataall = resresult.data
       }
     }
