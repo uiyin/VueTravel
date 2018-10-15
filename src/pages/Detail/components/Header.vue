@@ -25,6 +25,7 @@
 
 <script>
 export default {
+  name: 'Header',
   data () {
     return {
       message: '今天',

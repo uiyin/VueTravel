@@ -7,13 +7,10 @@
         <swiper :options="swiperOption"
                 ref="mySwiper">
           <!-- slides -->
-          <swiper-slide>
+          <swiper-slide v-for="(item,index) in list"
+                        :key="index">
             <img class="imgcontent"
-                 src="http://img1.qunarzz.com/sight/p0/1505/a6/a61815053184d725.water.jpg_350x240_35738553.jpg">
-          </swiper-slide>
-          <swiper-slide>
-            <img class="imgcontent"
-                 src="http://img1.qunarzz.com/sight/p0/201310/12/e7930e5381028915c8d65eac.jpg_350x240_52cb1072.jpg">
+                 :src="item">
           </swiper-slide>
         </swiper>
       </div>
@@ -27,6 +24,7 @@
 <script>
 export default {
   name: 'CommonGallery',
+  props: ['list'],
   data () {
     return {
       swiperOption: {
@@ -64,11 +62,12 @@ export default {
   top: 0px;
   bottom: 0px;
   background: black;
+  z-index: 1;
   .swiperContent {
     background: black;
     position: absolute;
     left: 0px;
-    top: 50%;
+    top: 40%;
     right: 0px;
     transform: translate(0%, -50%);
     height: 72vw;
@@ -81,7 +80,7 @@ export default {
   .position {
     position: absolute;
     left: 0px;
-    top: 70%;
+    top: 80%;
     right: 0px;
     transform: translate(0%, -10%);
     height: 5vw;
