@@ -52,7 +52,6 @@ export default {
       this.oldcity = this.city
       axios.get('/api/index.json?city=' + this.city).then(this.getdata)
     }
-    console.log('actived')
   },
   methods: {
     getdata (res) {
