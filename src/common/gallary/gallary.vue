@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted () {
-    console.log('this is current swiper instance object', this.swiper)
+    // console.log('this is current swiper instance object', this.swiper)
   },
   methods: {
     flagchange () {
