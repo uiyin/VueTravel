@@ -95,7 +95,7 @@ export default {
     overflow: hidden;
     .citywraper {
       position: relative;
-      width: 98%;
+      width: 98vw;
       height: 0.66rem;
       margin: 0 auto;
       margin-top: 0.1rem;
@@ -104,9 +104,10 @@ export default {
       .citytext {
         position: absolute;
         left: 2%;
-        top: 0px;
-        width: 96%;
-        height: 0.62rem;
+        width: 94%;
+        right: 2%;
+        top: 0.1rem;
+        bottom: 0.1rem;
         text-align: center;
         border: none;
         font-size: 14px;

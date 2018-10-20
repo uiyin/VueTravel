@@ -27,7 +27,7 @@ export default {
         id: id
       }
     }
-    axios.get('/api/detail.json', data).then(this.getdata)
+    axios.get('/static/mock/detail.json', data).then(this.getdata)
   },
   methods: {
     getdata (res) {

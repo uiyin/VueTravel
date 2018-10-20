@@ -44,13 +44,13 @@ export default {
   },
   mounted () {
     this.oldcity = this.city
-    axios.get('/api/index.json?city=' + this.city).then(this.getdata)
+    axios.get('/static/mock/index.json?city=' + this.city).then(this.getdata)
   },
   // 这个必须和keepalive配合这样能更改数据，mounted只执行一次,actived只要页面渲染就执行一次
   activated () {
     if (this.oldcity !== this.city) {
       this.oldcity = this.city
-      axios.get('/api/index.json?city=' + this.city).then(this.getdata)
+      axios.get('/static/mock/index.json?city=' + this.city).then(this.getdata)
     }
   },
   methods: {
